@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+class Student {
+    int studnum;
+    String name;
+    String major;
+    String phonenum;
+
+    public Student(int studnum, String name, String major, String phonenum) {
+        this.studnum = studnum;
+        this.name = name;
+        this.major = major;
+        this.phonenum = phonenum;
+    }
+
+    public void printStudentInfo() {
+        System.out.println("학번: " + studnum);
+        System.out.println("이름: " + name);
+        System.out.println("전공: " + major);
+        System.out.println("전화번호: " + phonenum);
+    }
+}
+
+public class Homework2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Student[] students = new Student[3];
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println("학번, 이름, 전공, 전화번호 순서대로 입력하시오.");
+            int studnum = scanner.nextInt();
+            String name = scanner.next();
+            String major = scanner.next();
+            String phonenum = scanner.next();
+
+            phonenum = "010-" + phonenum.substring(0, 4) + "-" + phonenum.substring(4);
+
+            Student student = new Student(studnum, name, major, phonenum);
+            students[i] = student;
+        }
+
+        System.out.println("입력된 학생 정보:");
+        for (Student student : students) {
+            student.printStudentInfo();
+        }
+    }
+}
