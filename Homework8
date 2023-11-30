@@ -1,0 +1,29 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Homework8 {
+    public static void main(String[] args) {
+        HashMap<String, String> credentials = new HashMap<>();
+        credentials.put("myId", "myPass");
+        credentials.put("myId2", "myPass2");
+        credentials.put("myId3", "myPass3");
+
+      
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("id와 password를 입력 id : ");
+        String inputId = scanner.nextLine().trim(); 
+       
+        if (!credentials.containsKey(inputId)) {
+            System.out.println("입력하신 id는 존재하지 않습니다. 다시 입력해주세요.");
+        } else {
+            System.out.print("password : ");
+            String inputPassword = scanner.nextLine().trim(); // 입력된 공백은 무시
+            
+            if (credentials.get(inputId).equals(inputPassword)) {
+                System.out.println("id와 비밀번호가 일치합니다.");
+            } else {
+                System.out.println("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
+            }
+        }
+    }
+}
